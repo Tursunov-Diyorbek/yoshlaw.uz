@@ -663,12 +663,10 @@ function startCountdown(targetDate, daysId, hoursId, minutesId, secondsId) {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById(daysId).innerHTML = days + " <span>DAYS</span>";
-    document.getElementById(hoursId).innerHTML = hours + " <span>Hours</span>";
-    document.getElementById(minutesId).innerHTML =
-      minutes + " <span>Minutes</span>";
-    document.getElementById(secondsId).innerHTML =
-      seconds + " <span>Seconds</span>";
+    document.getElementById(daysId).innerHTML = days;
+    document.getElementById(hoursId).innerHTML = hours;
+    document.getElementById(minutesId).innerHTML = minutes;
+    document.getElementById(secondsId).innerHTML = seconds;
 
     if (distance < 0) {
       clearInterval(countdownFunction);
