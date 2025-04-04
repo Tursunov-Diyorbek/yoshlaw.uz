@@ -444,47 +444,14 @@ const footerMenu = () => {
   }
 };
 
-const downloadFiles = () => {
-  document.getElementById("downloadPdf").addEventListener("click", () => {
-    const link = document.createElement("a");
-    link.href = "assets/file/ru/CUDC.pdf";
-    link.download = "Loyiha qoidalari.pdf";
-    link.target = "_blank";
-    link.click();
-  });
-
-  document.getElementById("downloadPdf2").addEventListener("click", () => {
-    const link = document.createElement("a");
-    link.href = "assets/file/uz/Yoshlar uchun muhokama savollari.docx";
-    link.download = "Yoshlar uchun muhokama savollari uz.docx";
-    link.target = "_blank";
-    link.click();
-  });
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-  const defaultLang = localStorage.getItem("lang") || "uz";
-  let currentLang = localStorage.getItem("lang") || "uz";
-
-  document.getElementById("SignUp").addEventListener("click", () => {
-    let url = "";
-    if (currentLang === "uz") {
-      url =
-        "https://docs.google.com/forms/d/e/1FAIpQLSdDXDPRSTeUpnly-yEzUZIMSZtR3j26HdiqOSfCaH-VSm33ug/viewform";
-    } else if (currentLang === "ru") {
-      url =
-        "https://docs.google.com/forms/d/e/1FAIpQLSc7PAREua9RkeQyVwkxRHyblMs-2uVa3TIuDyp4LOBIxmg8sQ/viewform";
-    } else {
-      url =
-        "https://docs.google.com/forms/d/e/1FAIpQLSfr8C41inYu6JO5t2L8c_9oY7pNXJqxhGyg3kPEwjubUhFVZQ/viewform";
-    }
-    window.open(url, "_blank");
-  });
+const language = () => {
+  const selects = document.querySelectorAll(".custom-select");
+  const savedLang = localStorage.getItem("lang") || "uz";
+  let currentLang = savedLang;
 
   async function loadTranslations(lang) {
     currentLang = lang;
     if (lang === "en") return translate({}, lang);
-
     try {
       const res = await fetch(`assets/locales/${lang}/translation.json`);
       const text = await res.text();
@@ -506,58 +473,138 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function setSelectedLangUI(lang) {
-    const selected = document.querySelector(".select-selected");
-    const option = document.querySelector(
-      `.select-items div[data-value="${lang}"]`
-    );
-    if (selected && option) {
-      selected.innerHTML = "";
-      const img = option.querySelector("img")?.cloneNode(true);
-      if (img) selected.appendChild(img);
-      selected.appendChild(
-        document.createTextNode(" " + option.textContent.trim())
-      );
-      selected.dataset.value = lang;
+  document.getElementById("downloadPdf2")?.addEventListener("click", () => {
+    const link = document.createElement("a");
+    if (currentLang === "uz") {
+      link.href = "assets/file/uz/Yoshlar uchun muhokama savollari.docx";
+      link.download = "Yoshlar uchun muhokama savollari uz.docx";
+    } else if (currentLang === "ru") {
+      link.href = "assets/file/ru/Talabalar uchun muhokama savollar ru.docx";
+      link.download = "Вопросы для обсуждения для молодежи.docx";
+    } else {
+      link.href = "assets/file/en/Talabalar uchun muhokama savollari en.docx";
+      link.download = "Discussion questions for young people.docx";
     }
-  }
+    link.target = "_blank";
+    link.click();
+  });
 
-  function setupLangSelect() {
-    const selector = document.querySelector(".custom-select");
-    if (!selector) return;
+  document.getElementById("downloadPdf")?.addEventListener("click", () => {
+    const link = document.createElement("a");
+    if (currentLang === "uz") {
+      link.href = "assets/file/uz/CUDC qoidalari.docx";
+      link.download = "Loyiha qoidalari.docx";
+    } else if (currentLang === "ru") {
+      link.href = "assets/file/ru/CUDC.pdf";
+      link.download = "Правила проекта.pdf";
+    } else {
+      link.href = "assets/file/en/CUDC.ru.en.pdf_20250402_232635_0000.pdf";
+      link.download = "Project rules.pdf";
+    }
+    link.target = "_blank";
+    link.click();
+  });
 
-    const selected = selector.querySelector(".select-selected");
-    const items = selector.querySelector(".select-items");
+  document.getElementById("SignUp")?.addEventListener("click", () => {
+    let url = "";
+    if (currentLang === "uz") {
+      url =
+        "https://docs.google.com/forms/d/e/1FAIpQLSdDXDPRSTeUpnly-yEzUZIMSZtR3j26HdiqOSfCaH-VSm33ug/viewform";
+    } else if (currentLang === "ru") {
+      url =
+        "https://docs.google.com/forms/d/e/1FAIpQLSc7PAREua9RkeQyVwkxRHyblMs-2uVa3TIuDyp4LOBIxmg8sQ/viewform";
+    } else {
+      url =
+        "https://docs.google.com/forms/d/e/1FAIpQLSfr8C41inYu6JO5t2L8c_9oY7pNXJqxhGyg3kPEwjubUhFVZQ/viewform";
+    }
+    window.open(url, "_blank");
+  });
 
-    selector
-      .querySelectorAll(".select-items div[data-value]")
-      .forEach((option) => {
-        option.addEventListener("click", () => {
-          const lang = option.dataset.value;
-          localStorage.setItem("lang", lang);
-          loadTranslations(lang);
-          setSelectedLangUI(lang);
-          items.classList.add("select-hide");
-        });
-      });
+  document.getElementById("FirstTashkent")?.addEventListener("click", () => {
+    let url = "";
+    if (currentLang === "uz" || currentLang === "ru") {
+      url =
+        "https://docs.google.com/forms/d/e/1FAIpQLSczvE3mjePtcbRXug0qMQfSydBB1HQD7CZ9GcbqKwGg2Dp7rw/viewform?usp=sharing";
+    } else {
+      url =
+        "https://docs.google.com/forms/u/0/d/1RiWdj1tyMfjhs1sd5SAEDy-3SFyoOd6ipvV3wha8hDY/viewform?pli=1&usp=sharing_eil_se_dm&ts=67ef39b4&pli=1&edit_requested=true";
+    }
+    window.open(url, "_blank");
+  });
 
-    selected?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      items.classList.toggle("select-hide");
-    });
+  selects.forEach((select) => {
+    const selected = select.querySelector(".select-selected");
+    const items = select.querySelector(".select-items");
+    const options = items.querySelectorAll("div[data-value]");
 
-    document.addEventListener("click", (e) => {
-      if (!selector.contains(e.target)) {
-        items.classList.add("select-hide");
+    options.forEach((opt) => {
+      if (opt.getAttribute("data-value") === savedLang) {
+        const img = opt.querySelector("img")?.cloneNode(true);
+        const text = opt.textContent.trim();
+        selected.innerHTML = "";
+        if (img) selected.appendChild(img);
+        selected.innerHTML += " " + text;
+        selected.setAttribute("data-value", savedLang);
       }
     });
+
+    selected?.addEventListener("click", function (e) {
+      e.stopPropagation();
+      closeAllSelects(this);
+      items.classList.toggle("select-hide");
+      selected.classList.toggle("select-arrow-active");
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", function () {
+        const img = this.querySelector("img")?.cloneNode(true);
+        const text = this.textContent.trim();
+        const value = this.getAttribute("data-value");
+
+        selected.innerHTML = "";
+        if (img) selected.appendChild(img);
+        selected.innerHTML += " " + text;
+        selected.setAttribute("data-value", value);
+
+        localStorage.setItem("lang", value);
+        loadTranslations(value);
+        syncSelects(value);
+
+        items.classList.add("select-hide");
+        selected.classList.remove("select-arrow-active");
+      });
+    });
+  });
+
+  function syncSelects(value) {
+    selects.forEach((select) => {
+      const selected = select.querySelector(".select-selected");
+      const options = select.querySelectorAll("div[data-value]");
+      options.forEach((opt) => {
+        if (opt.getAttribute("data-value") === value) {
+          const img = opt.querySelector("img")?.cloneNode(true);
+          const text = opt.textContent.trim();
+          selected.innerHTML = "";
+          if (img) selected.appendChild(img);
+          selected.innerHTML += " " + text;
+          selected.setAttribute("data-value", value);
+        }
+      });
+    });
   }
 
-  setSelectedLangUI(defaultLang);
-  loadTranslations(defaultLang);
-  setupLangSelect();
-});
+  function closeAllSelects() {
+    const allItems = document.querySelectorAll(".select-items");
+    const allSelected = document.querySelectorAll(".select-selected");
+
+    allItems.forEach((el) => el.classList.add("select-hide"));
+    allSelected.forEach((el) => el.classList.remove("select-arrow-active"));
+  }
+
+  document.addEventListener("click", closeAllSelects);
+  loadTranslations(savedLang);
+};
 
 headerMenu();
 footerMenu();
-downloadFiles();
+language();
