@@ -663,28 +663,42 @@ function startCountdown(targetDate, daysId, hoursId, minutesId, secondsId) {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById(daysId).innerHTML = days;
-    document.getElementById(hoursId).innerHTML = hours;
-    document.getElementById(minutesId).innerHTML = minutes;
-    document.getElementById(secondsId).innerHTML = seconds;
+    if (document.getElementById(daysId)) {
+      document.getElementById(daysId).innerHTML = days;
+    }
+    if (document.getElementById(hoursId)) {
+      document.getElementById(hoursId).innerHTML = hours;
+    }
+    if (document.getElementById(minutesId)) {
+      document.getElementById(minutesId).innerHTML = minutes;
+    }
+    if (document.getElementById(secondsId)) {
+      document.getElementById(secondsId).innerHTML = seconds;
+    }
 
     if (distance < 0) {
       clearInterval(countdownFunction);
-      document.getElementById(daysId).innerHTML = "00";
-      document.getElementById(hoursId).innerHTML = "00";
-      document.getElementById(minutesId).innerHTML = "00";
-      document.getElementById(secondsId).innerHTML = "00";
+
+      if (document.getElementById(daysId)) {
+        document.getElementById(daysId).innerHTML = "00";
+      }
+      if (document.getElementById(hoursId)) {
+        document.getElementById(hoursId).innerHTML = "00";
+      }
+      if (document.getElementById(minutesId)) {
+        document.getElementById(minutesId).innerHTML = "00";
+      }
+      if (document.getElementById(secondsId)) {
+        document.getElementById(secondsId).innerHTML = "00";
+      }
+
       alert("Countdown Ended");
     }
   }, 1000);
 }
 
-// Bu yerda to‘g‘ri vaqt: 2025 yil 30-may, soat 09:30
-var targetDate = new Date("2025-05-30T09:30:00"); // lokal vaqt bo‘yicha
-
-// Ikkita countdown uchun
+var targetDate = new Date("2025-05-30T09:30:00");
 startCountdown(targetDate.getTime(), "days", "hours", "minutes", "seconds");
-startCountdown(targetDate.getTime(), "days1", "hours1", "minutes1", "seconds1");
 
 //========== GSAP AREA ============= //
 

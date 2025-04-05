@@ -9305,7 +9305,7 @@ html {
   background: var(--ztc-text-text-1);
   top: 201.3%;
   transform: scale(1, 0);
-  width: 225px;
+  width: 400px;
   z-index: 0;
   transition: all 0.4s;
   border-radius: 5px;
@@ -18638,8 +18638,8 @@ html {
   .team-widget-area
   .img1
   .team-img4 {
-  height: 100%;
-  width: 100%;
+  height: 302px;
+  width: 302px;
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 50%;
@@ -18803,9 +18803,8 @@ html {
   }
 }
 .event-team-area .event-widget-area .event2-boxarea .img1 img {
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
+  height: 300px;
+  width: 300px;
   object-fit: cover;
   border-radius: 4px;
 }

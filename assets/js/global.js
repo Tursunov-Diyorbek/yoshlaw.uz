@@ -41,48 +41,32 @@ const headerMenu = () => {
                   <ul>
                     <li>
                       <a href="#"
-                        >Speakers <i class="fa-solid fa-angle-down"></i
+                        ><span data-i18n="Speakers"></span> <i class="fa-solid fa-angle-down"></i
                       ></a>
                       <ul class="dropdown-padding">
-                        <li><a href="speakers.html">Speakers</a></li>
-                        <li>
-                          <a href="speakers-single.html">Speakers Details</a>
-                        </li>
+                        <li><a href="speakers1.html">Speakers 1</a></li>
+                        <li><a href="speakers2.html">Speakers 2</a></li>
+                        <li><a href="speakers3.html">Speakers 3</a></li>
+                        <li><a href="speakers4.html">Speakers 4</a></li>
                       </ul>
                     </li>
 
                     <li>
-                      <a href="#"
-                        >Schedule <i class="fa-solid fa-angle-down"></i
+                      <a style="cursor: pointer"
+                        > <span data-i18n="Programs"></span> <i class="fa-solid fa-angle-down"></i
                       ></a>
                       <ul class="dropdown-padding">
-                        <li><a href="event.html">Our Event</a></li>
+                        <li><a href="#" data-i18n="1st Tashkent International Mediation Competition"></a></li>
                         <li>
-                          <a href="event-schedule.html">Event Schedule</a>
+                          <a href="#" data-i18n="Nations festival"></a>
                         </li>
-                        <li><a href="event-single.html">Event Details</a></li>
+                        <li><a href="#" data-i18n="Panel Sessions"></a></li>
+                        <li><a href="#" data-i18n="Debate competitions"></a></li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#"
-                        >Blogs <i class="fa-solid fa-angle-down"></i
-                      ></a>
-                      <ul class="dropdown-padding">
-                        <li><a href="blog.html">Our Blog</a></li>
-                        <li><a href="blog-single.html">Blog Details</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#"
-                        >Pages <i class="fa-solid fa-angle-down"></i
-                      ></a>
-                      <ul class="dropdown-padding">
-                        <li><a href="memories.html">Our Memories</a></li>
-                        <li><a href="pricing-plan.html">Pricing Plan</a></li>
-                        <li><a href="faq.html">FAQ,s</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                      </ul>
-                    </li>
+                    <a style="cursor: pointer" href="faq.html">FAQ</a>
+                      </li>
                   </ul>
                 </div>
                 <div class="btn-area">
@@ -473,7 +457,23 @@ const language = () => {
     });
   }
 
-  document.getElementById("downloadPdf2")?.addEventListener("click", () => {
+  document.querySelector(".downloadPdf3")?.addEventListener("click", () => {
+    const link = document.createElement("a");
+    if (currentLang === "uz") {
+      link.href = "assets/file/uz/new2025-миллатлар фестивали.docx";
+      link.download = "Millatlar festivali.docx";
+    } else if (currentLang === "ru") {
+      link.href = "assets/file/ru/new2025-миллатлар фестивали (1).docx";
+      link.download = "Фестиваль наций.docx";
+    } else {
+      link.href = "assets/file/en/Фестиваль.docx";
+      link.download = "Nations festival.docx";
+    }
+    link.target = "_blank";
+    link.click();
+  });
+
+  document.querySelector(".downloadPdf2")?.addEventListener("click", () => {
     const link = document.createElement("a");
     if (currentLang === "uz") {
       link.href = "assets/file/uz/Yoshlar uchun muhokama savollari.docx";
@@ -489,7 +489,7 @@ const language = () => {
     link.click();
   });
 
-  document.getElementById("downloadPdf")?.addEventListener("click", () => {
+  document.querySelector(".downloadPdf")?.addEventListener("click", () => {
     const link = document.createElement("a");
     if (currentLang === "uz") {
       link.href = "assets/file/uz/CUDC qoidalari.docx";
@@ -505,7 +505,7 @@ const language = () => {
     link.click();
   });
 
-  document.getElementById("SignUp")?.addEventListener("click", () => {
+  document.querySelector(".SignUp")?.addEventListener("click", () => {
     let url = "";
     if (currentLang === "uz") {
       url =
@@ -520,7 +520,7 @@ const language = () => {
     window.open(url, "_blank");
   });
 
-  document.getElementById("FirstTashkent")?.addEventListener("click", () => {
+  document.querySelector(".FirstTashkent")?.addEventListener("click", () => {
     let url = "";
     if (currentLang === "uz" || currentLang === "ru") {
       url =
