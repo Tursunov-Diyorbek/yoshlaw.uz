@@ -56,12 +56,12 @@ const headerMenu = () => {
                         > <span data-i18n="Programs"></span> <i class="fa-solid fa-angle-down"></i
                       ></a>
                       <ul class="dropdown-padding">
-                        <li><a href="#" data-i18n="1st Tashkent International Mediation Competition"></a></li>
+                        <li><a href="first-tashkent.html" data-i18n="1st Tashkent International Mediation Competition"></a></li>
                         <li>
-                          <a href="#" data-i18n="Nations festival"></a>
+                          <a href="nations-festival.html" data-i18n="Nations festival"></a>
                         </li>
-                        <li><a href="#" data-i18n="Panel Sessions"></a></li>
-                        <li><a href="#" data-i18n="Debate competitions"></a></li>
+                        <li><a href="panel-sessions.html" data-i18n="Panel Sessions"></a></li>
+                        <li><a href="debate-competitions.html" data-i18n="Debate competitions"></a></li>
                       </ul>
                     </li>
                     <li>
@@ -71,6 +71,19 @@ const headerMenu = () => {
                 </div>
                 <div class="btn-area">
                   <ul>
+                    <li>
+                      <a href="https://www.facebook.com/share/1BFJatGR6C/?mibextid=wwXIfr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a href="https://www.instagram.com/yoshlaw.uz" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                      <a href="https://t.me/yoshlaw" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                    </li>
+                    <li>
+                      <a href="mailto:yoshlaw.uz@gmail.com" target="_blank" class="m-0"
+                        ><i class="fa-regular fa-envelope"></i></a>
+                    </li>
                     <li>
                       <div class="custom-select">
                         <div class="select-selected">
@@ -91,19 +104,6 @@ const headerMenu = () => {
                           </div>
                         </div>
                       </div>
-                    </li>
-                    <li>
-                      <a href="https://www.facebook.com/share/1BFJatGR6C/?mibextid=wwXIfr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="https://www.instagram.com/yoshlaw.uz" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    </li>
-                    <li>
-                      <a href="https://t.me/yoshlaw" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-                    </li>
-                    <li>
-                      <a href="mailto:yoshlaw.uz@gmail.com" target="_blank" class="m-0"
-                        ><i class="fa-regular fa-envelope"></i></a>
                     </li>
                   </ul>
                 </div>
@@ -456,6 +456,15 @@ const language = () => {
       }
     });
   }
+
+  document.querySelector(".downloadPdf4")?.addEventListener("click", () => {
+    const link = document.createElement("a");
+    link.href =
+      "assets/file/en/2025 Tashkent International Mediation Competition.docx";
+    link.download = "2025 Tashkent International Mediation Competition.docx";
+    link.target = "_blank";
+    link.click();
+  });
 
   document.querySelector(".downloadPdf3")?.addEventListener("click", () => {
     const link = document.createElement("a");
