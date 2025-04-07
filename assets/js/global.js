@@ -44,10 +44,10 @@ const headerMenu = () => {
                         ><span data-i18n="Speakers"></span> <i class="fa-solid fa-angle-down"></i
                       ></a>
                       <ul class="dropdown-padding">
-                        <li><a href="speakers1.html">Speakers 1</a></li>
-                        <li><a href="speakers2.html">Speakers 2</a></li>
-                        <li><a href="speakers3.html">Speakers 3</a></li>
-                        <li><a href="speakers4.html">Speakers 4</a></li>
+                        <li><a href="speakers1.html" data-i18n="Prof.Dr. Islambek Rustambekov"></a></li>
+                        <li><a href="speakers2.html" data-i18n="Professor Urfan Khaliq"></a></li>
+                        <li><a href="speakers3.html" data-i18n="Professor Michele DeStefano"></a></li>
+                        <li><a href="speakers4.html" data-i18n="Mr. Mitchell E. Kowalski"></a></li>
                       </ul>
                     </li>
 
