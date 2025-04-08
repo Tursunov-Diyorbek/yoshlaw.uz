@@ -65,8 +65,8 @@ const headerMenu = () => {
                       </ul>
                     </li>
                     <li>
-                    <a style="cursor: pointer" href="faq.html">FAQ</a>
-                      </li>
+                      <a style="cursor: pointer" href="faq.html">FAQ</a>
+                    </li>
                   </ul>
                 </div>
                 <div class="btn-area">
@@ -155,11 +155,13 @@ const headerMenu = () => {
     <div class="mobile-sidebar mobile-sidebar1">
       <div class="logosicon-area">
         <div class="logos">
+        <a href="/">
           <img
             src="assets/logos/Yosh Law logo.png"
             alt=""
             style="width: 50px"
           />
+          </a>
         </div>
         <div class="menu-close">
           <i class="fa-solid fa-xmark"></i>
@@ -168,49 +170,66 @@ const headerMenu = () => {
       <div class="mobile-nav mobile-nav1">
         <ul class="mobile-nav-list nav-list1">
           <li>
-            <a href="features.html">Speakers</a>
+            <a data-i18n="Speakers"></a>
             <ul class="sub-menu">
-              <li><a href="speakers.html">Speakers</a></li>
-              <li><a href="speakers-single.html">Speakers Details</a></li>
+              <li><a href="speakers1.html" data-i18n="Prof.Dr. Islambek Rustambekov"></a></li>
+              <li><a href="speakers2.html" data-i18n="Professor Urfan Khaliq"></a></li>
+              <li><a href="speakers3.html" data-i18n="Professor Michele DeStefano"></a></li>
+              <li><a href="speakers4.html" data-i18n="Mr. Mitchell E. Kowalski"></a></li>
             </ul>
           </li>
           <li>
-            <a href="features.html">Schedule</a>
+            <a data-i18n="Programs"></a>
             <ul class="sub-menu">
-              <li><a href="event.html">Our Event</a></li>
-              <li><a href="event-schedule.html">Event Schedule</a></li>
-              <li><a href="event-single.html">Event Details</a></li>
+             <li><a href="first-tashkent.html" data-i18n="1st Tashkent International Mediation Competition"></a></li>
+                        <li>
+                          <a href="nations-festival.html" data-i18n="Nations festival"></a>
+                        </li>
+                        <li><a href="panel-sessions.html" data-i18n="Panel Sessions"></a></li>
+                        <li><a href="debate-competitions.html" data-i18n="Debate competitions"></a></li>
             </ul>
           </li>
           <li>
-            <a href="#">Blogs</a>
-            <ul class="sub-menu">
-              <li><a href="blog.html">Our Blog</a></li>
-              <li><a href="blog-single.html">Blog Details</a></li>
-            </ul>
+            <a style="cursor: pointer" href="faq.html">FAQ</a>
           </li>
-          <li>
-            <a href="#">Pages</a>
-            <ul class="sub-menu">
-              <li><a href="memories.html">Our Memories</a></li>
-              <li><a href="pricing-plan.html">Pricing Plan</a></li>
-              <li><a href="faq.html">FAQ,s</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact Us</a></li>
         </ul>
         <div class="allmobilesection">
-          <a href="contact.html" class="vl-btn1">Contact Now</a>
+          <div class="custom-select">
+                        <div class="select-selected">
+                          <img src="assets/flags/en.png" alt="en" /> English
+                        </div>
+                        <div class="select-items select-hide">
+                          <div data-value="uz">
+                            <img src="assets/flags/uz.png" alt="uz" />
+                            Uzbek
+                          </div>
+                          <div data-value="ru">
+                            <img src="assets/flags/ru.png" alt="ru" />
+                            Russian
+                          </div>
+                          <div data-value="en">
+                            <img src="assets/flags/en.png" alt="en" />
+                            English
+                          </div>
+                        </div>
+                      </div>
           <div class="single-footer">
-            <h3>Contact Info</h3>
+            <h3 data-i18n="Contact Us"></h3>
             <div class="footer1-contact-info">
               <div class="contact-info-single">
                 <div class="contact-info-icon">
                   <span><i class="fa-solid fa-phone-volume"></i></span>
                 </div>
                 <div class="contact-info-text">
-                  <a href="tel:+3(924)4596512">+3(924)4596512</a>
+                  <a href="tel:+998936974222">+998 93 697 42 22</a>
+                </div>
+              </div>
+              <div class="contact-info-single">
+                <div class="contact-info-icon">
+                  <span><i class="fa-solid fa-phone-volume"></i></span>
+                </div>
+                <div class="contact-info-text">
+                  <a href="tel:+998949835444">+998 94 983 54 44</a>
                 </div>
               </div>
               <div class="contact-info-single">
@@ -218,38 +237,38 @@ const headerMenu = () => {
                   <span><i class="fa-solid fa-envelope"></i></span>
                 </div>
                 <div class="contact-info-text">
-                  <a href="mailto:info@example.com">info@example.com</a>
+                  <a href="mailto:yoshlaw.uz@gmail.com"
+                    >yoshlaw.uz@gmail.com</a
+                  >
                 </div>
               </div>
               <div class="single-footer">
-                <h3>Our Location</h3>
                 <div class="contact-info-single">
                   <div class="contact-info-icon">
                     <span><i class="fa-solid fa-location-dot"></i></span>
                   </div>
                   <div class="contact-info-text">
-                    <a href="mailto:info@example.com"
-                      >55 East Birchwood Ave.Brooklyn, <br />
-                      New York 11201,United States</a
-                    >
+                    <a
+                    href="https://yandex.uz/maps/10335/tashkent/search/Toshkent%20davlat%20yuridik%20universiteti/?ll=69.281417%2C41.312007&sctx=ZAAAAAgBEAAaKAoSCcueBDbnUVFAERGPxMvTp0RAEhIJTl5kAn6N3z8RHVpkO99Pzz8iBgABAgMEBSgKOABAnp8GSAFqAnV6nQHNzMw9oAEAqAEAvQEXh%2F4wwgESq622v%2FwC8Z2OjtYF49rTtJgBggIkVG9zaGtlbnQgZGF2bGF0IHl1cmlkaWsgdW5pdmVyc2l0ZXRpigIAkgIAmgIMZGVza3RvcC1tYXBz&sll=69.281417%2C41.312007&sspn=0.015407%2C0.007644&utm_campaign=desktop&utm_medium=search&utm_source=maps&z=17"
+                    target="_blank"
+                    data-i18n="Tashkent State University of Law"
+                    ></a
+                  >
                   </div>
                 </div>
               </div>
               <div class="single-footer">
-                <h3>Social Links</h3>
                 <div class="social-links-mobile-menu">
                   <ul>
                     <li>
-                      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="https://www.facebook.com/share/1BFJatGR6C/?mibextid=wwXIfr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                     </li>
                     <li>
-                      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                      <a href="https://www.instagram.com/yoshlaw.uz" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                     </li>
                     <li>
-                      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                      <a href="https://t.me/yoshlaw" target="_blank"><i class="fa-brands fa-telegram"></i
+                  ></a>
                     </li>
                   </ul>
                 </div>
@@ -309,19 +328,7 @@ const footerMenu = () => {
               </ul>
             </div>
           </div>
-          <div class="col-lg-2 col-md-6">
-            <div class="link-content">
-              <h3 data-i18n="Links"></h3>
-              <ul>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="blog.html">Our Blogs</a></li>
-                <li><a href="event.html">Event Listing</a></li>
-                <li><a href="pricing-plan.html">Pricing Plan</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-
+        
           <div class="col-lg-3 col-md-6">
             <div class="link-content2">
               <h3 data-i18n="Contact Us"></h3>
@@ -342,8 +349,7 @@ const footerMenu = () => {
                   <a
                     href="https://yandex.uz/maps/10335/tashkent/search/Toshkent%20davlat%20yuridik%20universiteti/?ll=69.281417%2C41.312007&sctx=ZAAAAAgBEAAaKAoSCcueBDbnUVFAERGPxMvTp0RAEhIJTl5kAn6N3z8RHVpkO99Pzz8iBgABAgMEBSgKOABAnp8GSAFqAnV6nQHNzMw9oAEAqAEAvQEXh%2F4wwgESq622v%2FwC8Z2OjtYF49rTtJgBggIkVG9zaGtlbnQgZGF2bGF0IHl1cmlkaWsgdW5pdmVyc2l0ZXRpigIAkgIAmgIMZGVza3RvcC1tYXBz&sll=69.281417%2C41.312007&sspn=0.015407%2C0.007644&utm_campaign=desktop&utm_medium=search&utm_source=maps&z=17"
                     target="_blank"
-                    ><img src="assets/img/icons/location1.svg" alt="" />Toshkent
-                    davlat yuridik universiteti</a
+                    ><img src="assets/img/icons/location1.svg" alt="" /><span data-i18n="Tashkent State University of Law"></span></a
                   >
                 </li>
                 <li>

@@ -23047,8 +23047,8 @@ html {
 }
 .about3-section-area .about3-images .img1 {
   background: #ffebec;
-  border-radius: 50%;
   padding: 10px;
+  border-radius: 10px;
   overflow: hidden;
 }
 .about3-section-area .about3-images .img1:hover img {
@@ -23060,8 +23060,8 @@ html {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: 50%;
   transition: all 0.4s;
+  border-radius: 5px;
 }
 .about3-section-area .about3-images .img2 {
   background: #fff;
@@ -29243,6 +29243,27 @@ html {
   width: 20px;
   height: 15px;
   object-fit: cover;
+}
+.city-image {
+  background-image: url(../images/mty3Nw17274248487396_b.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.bg-city-image {
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 48, 51, 0.7);
+  padding: 50px 0;
+}
+.city-card {
+  font-size: 15px;
+  border: 1px solid #fff;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  padding: 15px;
 }
 
 /*============= MEMORY CSS AREA ===============*/ /*# sourceMappingURL=main.css.map */
