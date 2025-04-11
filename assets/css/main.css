@@ -29277,4 +29277,76 @@ html {
   transition: all 0.4s;
 }
 
-/*============= MEMORY CSS AREA ===============*/ /*# sourceMappingURL=main.css.map */
+/* Tabs */
+.faq-item {
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.faq-item.active {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.faq-question {
+  padding: 15px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 77px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-question::after {
+  content: "+";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+  content: "-";
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.4s ease;
+  padding: 0 20px;
+  background: #fafafa;
+}
+
+.faq-answer-content {
+  padding: 15px 0;
+}
+.faq-card {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+.faq-cards {
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .faq-question {
+    height: auto;
+  }
+  .faq-card {
+    flex-direction: column;
+  }
+  .faq-cards {
+    width: 100%;
+  }
+}

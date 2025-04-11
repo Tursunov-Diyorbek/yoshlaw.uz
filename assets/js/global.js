@@ -61,7 +61,7 @@ const headerMenu = () => {
                           <a href="nations-festival.html" data-i18n="Nations festival"></a>
                         </li>
                         <li><a href="panel-sessions.html" data-i18n="Panel Sessions"></a></li>
-                        <li><a href="debate-competitions.html" data-i18n="Debate competitions"></a></li>
+                        <li><a href="debate-competitions.html" data-i18n="Model of parliamentary debates (CUDC)"></a></li>
                       </ul>
                     </li>
                     <li>
@@ -186,7 +186,7 @@ const headerMenu = () => {
                           <a href="nations-festival.html" data-i18n="Nations festival"></a>
                         </li>
                         <li><a href="panel-sessions.html" data-i18n="Panel Sessions"></a></li>
-                        <li><a href="debate-competitions.html" data-i18n="Debate competitions"></a></li>
+                        <li><a href="debate-competitions.html" data-i18n="Model of parliamentary debates (CUDC)"></a></li>
             </ul>
           </li>
           <li>
