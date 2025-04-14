@@ -465,9 +465,19 @@ const language = () => {
 
   document.querySelector(".downloadPdf4")?.addEventListener("click", () => {
     const link = document.createElement("a");
-    link.href =
-      "assets/file/en/2025 Tashkent International Mediation Competition.docx";
-    link.download = "2025 Tashkent International Mediation Competition.docx";
+    if (currentLang === "uz") {
+      link.href =
+        "assets/file/uz/2025 Tashkent International Mediation Competition.pdf";
+      link.download = "Birinchi Toshkent xalqaro mediatsiya tanlovi.pdf";
+    } else if (currentLang === "ru") {
+      link.href =
+        "assets/file/uz/2025 Tashkent International Mediation Competition.pdf";
+      link.download = "Birinchi Toshkent xalqaro mediatsiya tanlovi.pdf";
+    } else {
+      link.href =
+        "assets/file/en/2025 Tashkent International Mediation Competition.pdf";
+      link.download = "1st Tashkent International Mediation Competition.pdf";
+    }
     link.target = "_blank";
     link.click();
   });
