@@ -40,7 +40,7 @@ const headerMenu = () => {
                 <div class="main-menu">
                   <ul>
                     <li>
-                      <a href="#"
+                      <a style="cursor: pointer"
                         ><span data-i18n="Speakers"></span> <i class="fa-solid fa-angle-down"></i
                       ></a>
                       <ul class="dropdown-padding">
@@ -62,6 +62,7 @@ const headerMenu = () => {
                         </li>
                         <li><a href="panel-sessions.html" data-i18n="Panel Sessions"></a></li>
                         <li><a href="debate-competitions.html" data-i18n="Model of parliamentary debates (CUDC)"></a></li>
+                        <li><a href="legal-clinic.html" data-i18n="Workshop 'Legal Clinic Practice: Problem - Conversation - Solution'"></a></li>
                       </ul>
                     </li>
                     <li>
@@ -187,6 +188,7 @@ const headerMenu = () => {
                         </li>
                         <li><a href="panel-sessions.html" data-i18n="Panel Sessions"></a></li>
                         <li><a href="debate-competitions.html" data-i18n="Model of parliamentary debates (CUDC)"></a></li>
+                        <li><a href="legal-clinic.html" data-i18n="Workshop 'Legal Clinic Practice: Problem - Conversation - Solution'"></a></li>
             </ul>
           </li>
           <li>

@@ -8809,20 +8809,6 @@ html {
   left: 0;
 }
 
-.header-area.homepage1.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transform: translate3d(0, 0, 0);
-  z-index: 111;
-  animation-name: fade-in-down;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  background: var(--ztc-text-text-1);
-  transition: all 0.4s;
-}
-
 /*============= HEADER CSS AREA ENDS ===============*/
 /*============= HEADER CSS AREA ENDS ===============*/
 .homepage1-body,
@@ -9410,8 +9396,12 @@ html {
   animation-duration: 1s;
   animation-fill-mode: forwards;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-  background: var(--ztc-text-text-2);
+  /* background: #201e20e3; */
+  background: #fff;
   transition: all 0.4s;
+}
+.header-area.homepage1.sticky a {
+  color: #0d0400 !important;
 }
 
 .homepage2-body,
@@ -15226,6 +15216,15 @@ html {
   overflow: hidden;
   height: 100%;
 }
+.attent6-section-area .backImg5 {
+  background-image: url("../images/25c0d21d-85be-4bcf-b500-c552ed33719f.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+}
 .attent6-section-area .skils-widget-boxarea {
   display: flex;
   flex-direction: column;
@@ -15233,13 +15232,14 @@ html {
   height: 100%;
   backdrop-filter: blur(2px);
   padding: 20px;
-  background: rgba(46, 48, 51, 0.7);
+  /* background: rgba(46, 48, 51, 0.7); */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
   transition: background 0.2s ease;
   color: #ffffff;
-}
-
-.attent6-section-area .skils-widget-boxarea:hover {
-  background: rgba(46, 48, 51, 0.9);
 }
 
 .attent6-section-area .skils-widget-boxarea .icons {
@@ -29341,7 +29341,13 @@ html {
 .faq-cards {
   width: 50%;
 }
+.TwoAndFour{
+  width: 65%;
+}
 @media (max-width: 767px) {
+  .TwoAndFour{
+    width: 100%;
+  }
   .faq-question {
     height: auto;
   }
