@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoshLAW Certificate of Participation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .custom-italic {
+            font-family: 'ShackleItalic', sans-serif;
+        }
+
+        .certificate {
+            position: relative;
+            width: 1200px;
+            max-height: 850px;
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .inner-blue-line {
+            height: 810px;
+            border: 2px solid #273E74;
+            border-radius: 2px;
+            margin: 20px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .line-1 {
+            position: absolute;
+            width: 85px;
+            height: 100%;
+            background-color: #273E74;
+            box-shadow: #888687 12px 0px 15px;
+            top: -170px;
+            left: 80px;
+            transform: rotate(40deg);
+            z-index: 2;
+        }
+
+        .line-2 {
+            position: absolute;
+            width: 85px;
+            height: 100%;
+            background-color: #273E74;
+            box-shadow: #888687 12px 0px 15px;
+            bottom: -165px;
+            right: 40px;
+            transform: rotate(40deg);
+            z-index: 3;
+        }
+
+        .line-3 {
+            position: absolute;
+            width: 200px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: rgba(161, 156, 156, 0.35) 0px 0px 15px;
+            top: -340px;
+            right: 40px;
+            transform: rotate(-40deg);
+        }
+
+        .line-4 {
+            position: absolute;
+            width: 200px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: rgba(161, 156, 156, 0.35) 0px 0px 15px;
+            bottom: -340px;
+            left: 33px;
+            transform: rotate(-40deg);
+        }
+
+        .border-line-left {
+            position: absolute;
+            width: 17px;
+            height: 190px;
+            background-color: #273E74;
+            top: 43px;
+            left: 31px;
+        }
+
+        .border-line-right {
+            position: absolute;
+            width: 17px;
+            height: 190px;
+            background-color: #273E74;
+            bottom: 32px;
+            right: 34px;
+        }
+
+        .triangle {
+            position: absolute;
+            opacity: 0.8;
+        }
+
+        .triangle-green {
+            background: linear-gradient(135deg, #fff, #37B24E);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .triangle-blue {
+            background: linear-gradient(135deg, #fff, #273E74);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 60px 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo .logo-img {
+            width: 380px;
+        }
+
+        .logo .logo-img img {
+            height: 100%;
+            width: 100%;
+        }
+
+        .certificate-title {
+            font-size: 84px;
+            font-weight: 700;
+            color: #273E74;
+            letter-spacing: 8px;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .certificate-subtitle {
+            font-size: 16px;
+            color: #262E39;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .main-content {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .recognition-text {
+            font-size: 21px;
+            color: #262E39;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .name-line {
+            width: 710px;
+            height: 3px;
+            background: #2d3748;
+            margin: 0 auto 0;
+        }
+
+        .name-line-small {
+            width: 200px;
+            height: 1px;
+            background: #2d3748;
+            margin: 0 auto 0;
+        }
+
+        .achievement-text {
+            font-size: 20px;
+            color: #262E39;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        .qr-code {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .qr-code .qr-img,
+        .qr-code .qr-text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .qr-code .qr-img img {
+            width: 100px;
+            height: auto;
+        }
+
+        .qr-code .qr-text {
+            text-align: left;
+            margin-left: 15px;
+            font-size: 16px;
+            line-height: 1.4;
+            color: #262E39;
+        }
+
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .certificate {
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="certificate">
+        <div class="geometric-bg">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
+            <div class="line-4"></div>
+            <div class="border-line-left"></div>
+            <div class="border-line-right"></div>
+        </div>
+
+        <div class="inner-blue-line">
+            <div class="content">
+                <div class="header">
+                    <div class="logo">
+                        <div class="logo-img">
+                            <img src="assets/logos/Yosh Law word logo.png" alt="">
+                        </div>
+                    </div>
+
+                    <h1 class="certificate-title ">Certificate</h1>
+                    <p class="certificate-subtitle">-------------- of Participation --------------</p>
+                    <p class="recognition-text">
+                        In Recognition of Active Participation, We hereby certify that
+                    </p>
+                </div>
+
+                <div class="main-content">
+
+                    <div class="name-line"></div>
+
+                    <div class="achievement-text">
+                        has distinguished themselves at the YoshLAW: First International Youth Law<br>
+                        Forum hosted by Tashkent State University of Law. <br>
+                        Your insightful contributions advanced global legal discourse. <br>
+                        Awarded on 30-31 may, 2025.
+                    </div>
+
+                </div>
+
+                <div class="qr-code">
+                    <span class="qr-img">
+                        <img src="./assets/icons/qr-code-url.png" alt="QR Code">
+                    </span>
+                    <span class="qr-text">
+                        <div class="name-line-small"></div>
+                        I. Rustambekov Acting Rector,<br>
+                        Tashkent State University of Law<br>
+                        30–31 May 2025
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

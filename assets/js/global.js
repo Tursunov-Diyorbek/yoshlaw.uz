@@ -426,7 +426,7 @@ const footerMenu = () => {
         <div class="row">
           <div class="col-lg-12">
             <div class="copyright">
-              <p>&copy; Copyright 2025 -Eventify. All Right Reserved</p>
+             
             </div>
           </div>
         </div>
