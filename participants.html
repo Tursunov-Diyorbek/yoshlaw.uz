@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yoshlaw.uz</title>
+
+  <link rel="shortcut icon" href="assets/logos/Yosh Law logo.png" />
+
+  <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/vendor/aos.css" />
+  <link rel="stylesheet" href="assets/css/vendor/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css" />
+  <link rel="stylesheet" href="assets/css/vendor/mobile.css" />
+  <link rel="stylesheet" href="assets/css/vendor/owlcarousel.min.css" />
+  <link rel="stylesheet" href="assets/css/vendor/sidebar.css" />
+  <link rel="stylesheet" href="assets/css/vendor/slick-slider.css" />
+  <link rel="stylesheet" href="assets/css/vendor/nice-select.css" />
+  <link rel="stylesheet" href="assets/css/vendor/odometer.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="homepage1-body">
+  <div class="header-menu"></div>
+
+  <div class="container my-5" id="participantsSection">
+    <div class="row">
+      <div class="col-lg-8 m-auto">
+        <div class="attent-heading heading9 text-center">
+          <h2 class="text-anime-style-3" data-i18n="Participants"></h2>
+        </div>
+      </div>
+      <div class="col-12">
+        <label style="font-size: 24px;" for="searchInput" data-i18n="Search by full name"></label>
+        <input type="text" class="form-control" id="searchInput" placeholder="Search by full name">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="participantsTable">
+          <thead class="table-dark">
+            <tr>
+              <th class="">№</th>
+              <th data-i18n="Full name">
+              </th>
+              <th data-i18n="Certificate"></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <nav>
+        <ul class="pagination justify-content-center" id="pagination"></ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="footer-menu"></div>
+
+  <script>
+    let participants = [];
+    let currentPage = 1;
+    const rowsPerPage = 15;
+
+    const tableBody = document.querySelector("#participantsTable tbody");
+    const pagination = document.getElementById("pagination");
+    const searchInput = document.getElementById("searchInput");
+
+    function getFullName(p) {
+      return `${p.first_name} ${p.middle_name} ${p.last_name}`.trim();
+    }
+
+    function renderTable(filteredData) {
+      const start = (currentPage - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      const pageItems = filteredData.slice(start, end);
+
+      tableBody.innerHTML = "";
+      pageItems.forEach((p, index) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${start + index + 1}</td>
+          <td>${getFullName(p)}</td>          
+          <td><a href="verify.html?code=${p.certificate_code}" target="_blank" data-i18n="Download">Download</a></td>
+        `;
+        tableBody.appendChild(tr);
+      });
+
+      renderPagination(filteredData.length);
+    }
+    function renderPagination(totalItems) {
+      const totalPages = Math.ceil(totalItems / rowsPerPage);
+      const paginationContainer = document.getElementById("pagination");
+      paginationContainer.innerHTML = "";
+
+      for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li");
+        li.classList.add("page-item");
+        if (i === currentPage) li.classList.add("active");
+
+        const link = document.createElement("a");
+        link.classList.add("page-link");
+        link.href = "#";
+        link.textContent = i;
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          currentPage = i;
+          applyFilters();
+        });
+
+        li.appendChild(link);
+        paginationContainer.appendChild(li);
+      }
+    }
+
+
+    function applyFilters() {
+      const nameFilter = searchInput.value.toLowerCase();
+
+      const filtered = participants.filter(p => {
+        const fullName = getFullName(p).toLowerCase();
+        return fullName.includes(nameFilter);
+      });
+
+      renderTable(filtered);
+    }
+
+    fetch("https://api.yoshlaw.uz/api/participants")
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+          participants = res.data;
+          applyFilters();
+        }
+      });
+
+    searchInput.addEventListener("input", () => {
+      currentPage = 1;
+      applyFilters();
+    });
+
+    typeFilter.addEventListener("change", () => {
+      currentPage = 1;
+      applyFilters();
+    });
+
+    // JavaScript orqali placeholderni o‘rnatish
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      el.setAttribute('placeholder', key); // yoki tarjima funksiyasi ishlatiladi
+    });
+
+  </script>
+
+  <script src="assets/js/vendor/bootstrap.min.js"></script>
+  <script src="assets/js/vendor/fontawesome.js"></script>
+  <script src="assets/js/vendor/aos.js"></script>
+  <script src="assets/js/vendor/jquery.appear.js"></script>
+  <script src="assets/js/vendor/jquery.odometer.min.js"></script>
+  <script src="assets/js/vendor/sidebar.js"></script>
+  <script src="assets/js/vendor/magnific-popup.js"></script>
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/js/vendor/Splitetext.js"></script>
+  <script src="assets/js/vendor/mobilemenu.js"></script>
+  <script src="assets/js/vendor/owlcarousel.min.js"></script>
+  <script src="assets/js/vendor/nice-select.js"></script>
+  <script src="assets/js/vendor/waypoints.js"></script>
+  <script src="assets/js/vendor/slick-slider.js"></script>
+  <script src="assets/js/vendor/circle-progress.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/global.js"></script>
+</body>
+
+</html>

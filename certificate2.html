@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoshLAW Certificate of Participation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certificate {
+            position: relative;
+            width: 1200px;
+            height: auto;
+            background: #fff;
+            background-image: url('./assets/img/bg/sertifikat.png');
+            background-size: cover;
+            /* yoki contain */
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 60px 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo .logo-img {
+            width: 360px;
+        }
+
+        .logo .logo-img img {
+            height: 100%;
+            width: 100%;
+        }
+
+        .certificate-title {
+            font-size: 84px;
+            font-weight: 700;
+            color: #273E74;
+            letter-spacing: 8px;            
+            text-transform: uppercase;
+        }
+
+        .certificate-subtitle {
+            font-size: 16px;
+            color: #262E39;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .main-content {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .recognition-text {
+            font-size: 21px;
+            color: #262E39;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .name-line {
+            width: 710px;
+            height: 3px;
+            background: #2d3748;
+            margin: 0 auto 0;
+        }
+
+        .name-line-small {
+            width: 200px;
+            height: 1px;
+            background: #2d3748;
+            margin: 0 auto 0;
+        }
+
+        .achievement-text {
+            font-size: 20px;
+            color: #262E39;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        .qr-code {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .qr-code .qr-img,
+        .qr-code .qr-text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .qr-code .qr-img img {
+            width: 100px;
+            height: auto;
+        }
+
+        .qr-code .qr-text {
+            text-align: left;
+            margin-left: 30px;
+            font-size: 16px;
+            line-height: 1.4;
+            color: #262E39;
+        }
+
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .certificate {
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="certificate">
+        <div class="content">
+            <div class="header">
+                <div class="logo">
+                    <div class="logo-img">
+                        <img src="assets/logos/Yosh Law word logo.png" alt="">
+                    </div>
+                </div>
+
+                <h1 class="certificate-title ">Certificate</h1>
+                <p class="certificate-subtitle">-------------- of Participation --------------</p>
+                <p class="recognition-text">
+                    In Recognition of Active Participation, We hereby certify that
+                </p>
+            </div>
+
+            <div class="main-content">
+
+                <div class="name-line"></div>
+
+                <div class="achievement-text">
+                    has distinguished themselves at the YoshLAW: First International Youth Law<br>
+                    Forum hosted by Tashkent State University of Law. <br>
+                    Your insightful contributions advanced global legal discourse. <br>
+                    Awarded on 30-31 may, 2025.
+                </div>
+
+            </div>
+
+            <div class="qr-code">
+                <span class="qr-img">
+                    <img src="./assets/icons/qr-code-url.png" alt="QR Code">
+                </span>
+                <span class="qr-text">
+                    <div class="name-line-small"></div>
+                    I. Rustambekov Acting Rector,<br>
+                    Tashkent State University of Law<br>
+                    30–31 May 2025
+                </span>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

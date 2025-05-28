@@ -68,6 +68,9 @@ const headerMenu = () => {
                     <li>
                       <a style="cursor: pointer" href="faq.html">FAQ</a>
                     </li>
+                     <li>
+                      <a style="cursor: pointer" href="participants.html" data-i18n="Participants"></a>
+                    </li>
                   </ul>
                 </div>
                 <div class="btn-area">

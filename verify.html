@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yoshlaw.uz</title>
+
+  <link rel="shortcut icon" href="assets/logos/Yosh Law logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 30px;
+      background-color: #f8f9fa;
+    }
+
+    #result {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    a.download-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #1c59e7;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    a.download-btn:hover {
+      background: #1a2d5a;
+    }
+
+    .download-section {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="result">
+    <h1>Loading...</h1>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    if (code) {
+      fetch(`https://api.yoshlaw.uz/api/certificates/verify/${code}`)
+        .then(res => res.json())
+        .then(res => {
+          const el = document.getElementById("result");
+          if (res.success) {
+            const cert = res.data;
+            el.innerHTML = `
+              <h2>✅ Certificate Verified</h2>
+              <p><strong>Full name:</strong> ${cert.last_name}</p>                                  
+              ${cert.certificate_url || cert.certificate_path ? `
+              <div class="download-section">
+                <a href="${cert.certificate_url || cert.certificate_path}" class="download-btn" target="_blank" download>
+                 <i class="fa-solid fa-download"></i> Download Certificate
+                </a>
+              </div>
+              ` : ''}
+            `;
+          } else {
+            el.innerHTML = `<h2>❌ Certificate not found</h2>`;
+          }
+        });
+    } else {
+      document.getElementById("result").innerHTML = "<h2>No code provided</h2>";
+    }
+  </script>
+</body>
+
+</html>
