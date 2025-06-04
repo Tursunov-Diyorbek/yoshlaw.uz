@@ -692,7 +692,7 @@ function startCountdown(targetDate, daysId, hoursId, minutesId, secondsId) {
         document.getElementById(secondsId).innerHTML = "00";
       }
 
-      alert("Countdown Ended");
+      // alert("Countdown Ended");
     }
   }, 1000);
 }

@@ -21,6 +21,219 @@
   <link rel="stylesheet" href="assets/css/main.css" />
 
   <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: var(--dark-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item.active {
+      box-shadow: 0 0 0 3px var(--secondary-color);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: white;
+      padding: 20px 10px 10px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .lightbox-caption {
+      color: white;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .close-btn,
+    .nav-btn {
+      position: absolute;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .close-btn {
+      top: 20px;
+      right: 20px;
+    }
+
+    .prev-btn {
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .next-btn {
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.2rem;
+      color: #777;
+    }
+
+    .image-counter {
+      color: white;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body class="homepage1-body">
@@ -950,7 +1163,203 @@
     </div>
   </div>
 
+<main class="container my-5">
+    <div class="row">
+      <div class="col-lg-8 m-auto">
+        <div class="attent-heading heading9 text-center">
+          <h2 class="text-anime-style-3" data-i18n="Gallery"></h2>
+        </div>
+      </div>     
+    </div>
+    <div class="gallery" id="gallery">
+
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <div class="image-counter" id="image-counter"></div>
+    <button class="close-btn" id="close-btn">&times;</button>
+    <button class="nav-btn prev-btn" id="prev-btn">&lt;</button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lightbox-img" src="" alt="">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+    <button class="nav-btn next-btn" id="next-btn">&gt;</button>
+  </div>
+
+
   <div class="footer-menu"></div>
+
+  <script>
+    // Image data
+    const imageData = [
+      './assets/gallery/photo_1_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_4_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_5_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_6_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_7_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_8_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_9_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_10_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_11_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_12_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_13_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_14_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_15_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_16_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_17_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_18_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_19_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_20_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_21_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_22_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_23_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_24_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_25_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_26_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_27_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_28_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_29_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_30_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_31_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_32_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_33_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_34_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_35_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_36_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_37_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_38_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_39_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_40_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_41_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_42_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_43_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_44_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_45_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_46_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_47_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_48_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_49_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_50_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_51_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_52_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_53_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_54_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_55_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_56_2025-06-04_10-24-04.jpg',
+      './assets/gallery/photo_2_2025-06-04_10-24-04.jpg',
+    ];
+
+    // DOM elements
+    const gallery = document.getElementById('gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('close-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const imageCounter = document.getElementById('image-counter');
+
+    // Current image index for lightbox navigation
+    let currentImageIndex = 0;
+    let galleryItems = [];
+
+    // Initialize gallery
+    function initGallery() {
+      gallery.innerHTML = '';
+
+      imageData.forEach((imgSrc, index) => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.dataset.index = index;
+
+        galleryItem.innerHTML = `
+            <img src="${imgSrc}" alt="Festival rasmi" class="gallery-img" loading="lazy">
+        `;
+
+        galleryItem.addEventListener('click', () => {
+          // Remove active class from all items
+          galleryItems.forEach(item => item.classList.remove('active'));
+          // Add active class to clicked item
+          galleryItem.classList.add('active');
+          openLightbox(index);
+        });
+
+        gallery.appendChild(galleryItem);
+        galleryItems.push(galleryItem);
+      });
+    }
+
+    // Open lightbox
+    function openLightbox(index) {
+      currentImageIndex = index;
+      lightboxImg.src = imageData[index];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      updateImageCounter();
+    }
+
+    // Close lightbox
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      // Remove active class from all items when closing lightbox
+      galleryItems.forEach(item => item.classList.remove('active'));
+    }
+
+    // Update image counter
+    function updateImageCounter() {
+      imageCounter.textContent = `${currentImageIndex + 1} / ${imageData.length}`;
+    }
+
+    // Navigate lightbox
+    function navigate(direction) {
+      if (direction === 'prev') {
+        currentImageIndex = (currentImageIndex - 1 + imageData.length) % imageData.length;
+      } else {
+        currentImageIndex = (currentImageIndex + 1) % imageData.length;
+      }
+
+      lightboxImg.src = imageData[currentImageIndex].src;
+      lightboxCaption.textContent = imageData[currentImageIndex].caption;
+      updateImageCounter();
+
+      // Update active class
+      galleryItems.forEach(item => item.classList.remove('active'));
+      if (galleryItems[currentImageIndex]) {
+        galleryItems[currentImageIndex].classList.add('active');
+      }
+    }
+
+    // Event listeners
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', () => navigate('prev'));
+    nextBtn.addEventListener('click', () => navigate('next'));
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          navigate('prev');
+        } else if (e.key === 'ArrowRight') {
+          navigate('next');
+        }
+      }
+    });
+
+    // Initialize on load
+    window.addEventListener('load', () => {
+      // Simulate loading delay
+      setTimeout(initGallery, 500);
+    });
+  </script>
 
   <script>
     let participants = [];
